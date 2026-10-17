@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teneg Shalgalt</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<main>
+  <section class="screen" id="s-ask">
+    <div class="tag">Teneg Shalgalt</div>
+    <h1>Chi <mark>teneg</mark> uu?</h1>
+    <p class="sub">Neree bich, hariultaa har.</p>
+    <label for="name">Neree bich
+      <input type="text" id="name" maxlength="24" autocomplete="off" placeholder="jishee n: Bat">
+    </label>
+    <div class="row" id="answers">
+      <button type="button" class="btn-yes" id="yes">Tiim</button>
+      <span class="spacer" id="spacer"></span>
+      <button type="button" class="btn-no" id="no">Ugui</button>
+    </div>
+    <div class="counter" id="counter" aria-live="polite"></div>
+  </section>
+
+  <section class="screen" id="s-scan" hidden>
+    <div class="tag">Unshij baina</div>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barwrap"><i id="bar"></i></div>
+    <div class="log" id="log" aria-live="polite"></div>
+  </section>
+
+  <section class="screen" id="s-result" hidden>
+    <div class="tag" id="r-tag"></div>
+    <div class="big" id="r-pct"></div>
+    <div class="verdict" id="r-verdict"></div>
+    <p class="sub" id="r-note"></p>
+    <div class="row">
+      <button type="button" class="btn-yes" id="share">Naizdaa ilgee</button>
+      <button type="button" class="btn-no" id="again" style="touch-action:auto">Dahin shalgah</button>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+    <label class="link-box" id="linkbox" for="linkfield">Linkee huulj av
+      <input type="text" id="linkfield" readonly>
+    </label>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
