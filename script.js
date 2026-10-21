@@ -16,13 +16,21 @@
     "Hamgiin teneg",
     "Naizuudiinxa dund hamgiin teneg n",
     "Avralgui teneg",
-    "lalriin teneg",
-    "teneg lalar",
+    "uruvdultei teneg",
+    "teneg lalar, hardcore:3",
+    "yag jinhene teneg",
+    "hagas teneg",
+    "zarim uyd teneg",
+    "teneg bish um baina, Bayr xurgey lol",
+    "teneg ch gesen daxiad teneg",
+    "tengee meddeggui teneg"
   ];
   var notes = [
     "Naizuudiiga teneg gedgiig batlah gej xiiv.",
     "Shalgaltiig batalsan: Teneg Shalgalt LLC.",
-    "Naizuuddaa ilgeej, ehnii ur dung ni ymar baigaag har."
+    "Ur dun buruu baij bolno, gehdee bi buruu um xiixgui.",
+    "Shalgalt ene ur dung buh system hamt tohiroltsloo.",
+    "Naizuuddaa ilgeej, ur dung ni haraarai."
   ];
 
   function hash(s) {
@@ -110,13 +118,19 @@
     timers.push(setTimeout(function () { showResult(name); }, 700 * (steps.length + 1) + 300));
   }
 
-  function showResult(name) {
+    function showResult(name) {
     var h = hash(name.toLowerCase());
-    var pct = 87 + (h % 13);
+    var isNot = (h % 6) === 5;
+    var pct = isNot ? 3 + (h % 13) : 87 + (h % 13);
     $("r-tag").textContent = "Shalgalt duuslaa · " + name;
     $("r-pct").textContent = pct + "%";
-    $("r-verdict").textContent = name + " bol " + verdicts[h % verdicts.length] + ".";
-    $("r-note").textContent = notes[h % notes.length];
+    if (isNot) {
+      $("r-verdict").textContent = name + "teneg bish um baina, Bayr xurgey lol";
+      $("r-note").textContent = "Skanner chamaig tengiin jagsaaltand olsongui.";
+    } else {
+      $("r-verdict").textContent = name + " bol " + verdicts[(h >> 3) % verdicts.length] + ".";
+      $("r-note").textContent = notes[h % notes.length];
+    }
     $("status").textContent = "";
     show(result);
   }
